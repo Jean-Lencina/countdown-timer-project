@@ -11,7 +11,7 @@ const months = [
     "October",
     "November",
     "December",
-];
+]
 
 const weekdays = [
     "Sunday",
@@ -23,20 +23,39 @@ const weekdays = [
     "Saturday",
 ]
 
-const timetotravel = document.querySelector('.timetotravel');
-const deadline = document.querySelector('.deadline');
-const items = document.querySelectorAll('.deadline-format h4');
+const timetotravel = document.querySelector('.timetotravel')
+const deadline = document.querySelector('.deadline')
+const items = document.querySelectorAll('.deadline-format h4')
 
-let futureDate = new Date(2024, 1, 8, 8, 30, 00);
+let futureDate = new Date(2024, 1, 8, 8, 0, 0)
 
-const year = futureDate.getFullYear();
-const hours = futureDate.getHours();
-const minutes = futureDate.getMinutes();
+const year = futureDate.getFullYear()
+const hours = futureDate.getHours()
+const minutes = futureDate.getMinutes()
 
-let month = futureDate.getMonth();
+let month = futureDate.getMonth()
 month = months[month]
 const date = futureDate.getDate()
 
+const weekday = weekdays[futureDate.getDay()]
 
+timetotravel.textContent = `We will travel to paris in ${weekday}, ${date} ${month} ${year} ${hours}:${minutes}0am`
 
-timetotravel.textContent = `We will travel to paris in ${date} ${month} ${year} ${hours}:${minutes}am`
+// Future time in ms
+const futureTime = futureDate.getTime()
+
+function getRemainingTime(){
+    const today = new Date().getTime()
+    const t = futureTime - today
+    console.log(t)
+    // 1s = 1000ms
+    // 1m = 60s
+    // 1hr = 60m
+    // 1d = 24hr
+
+    // values in ms
+    const oneDay = 24*60*60*1000
+    console.log(oneDay)
+}
+
+getRemainingTime()
