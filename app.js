@@ -27,7 +27,7 @@ const timetotravel = document.querySelector('.timetotravel')
 const deadline = document.querySelector('.deadline')
 const items = document.querySelectorAll('.deadline-format h4')
 
-let futureDate = new Date(2024, 1, 8, 8, 0, 0)
+let futureDate = new Date(2025, 0, 1, 8, 0, 0)
 
 const year = futureDate.getFullYear()
 const hours = futureDate.getHours()
